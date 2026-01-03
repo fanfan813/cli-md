@@ -1,0 +1,25 @@
+
+[mcp_servers.context7]
+type = "stdio"
+command = "npx"
+args = ["-y", "@upstash/context7-mcp", "--api-key", "你自己的api-key"]
+
+# serena仓库地址 https://github.com/serena-ai/serena,可以clone到本地起
+[mcp_servers.serena]
+type = "stdio"
+command = "uv"
+args = ["run", "--directory", "/Users/xxx/repo/serena", "serena", "start-mcp-server", "--context", "codex"]
+
+[mcp_servers.desktop-commander]
+type = "stdio"
+command = "npx"
+args = ["-y", "@wonderwhy-er/desktop-commander"]
+startup_timeout_ms = 10000
+
+# dbhub仓库地址文档 https://github.com/bytebase/dbhub
+# 官方地址 https://dbhub.ai/
+[mcp_servers.dbhub]
+type = "stdio"
+command = "npx"
+args = ["@bytebase/dbhub", "--transport", "stdio", "--dsn", "mysql://user:password@host:port/database"]
+startup_timeout_ms = 30000
